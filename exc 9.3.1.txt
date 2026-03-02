@@ -12,7 +12,7 @@ def my_mp3_playlist(file_path): #returns a tuple of
                 continue #skips lines that don't have the right format
             num_songs += 1
             duration = convert_to_sec(line_splitted[2])
-            if authorsgit.get(line_splitted[1]) == None:
+            if authors(line_splitted[1]) == None:
                 authors[line_splitted[1]] = [(line_splitted[0],duration)]
             else:
                 authors[line_splitted[1]].append((line_splitted[0],duration))
