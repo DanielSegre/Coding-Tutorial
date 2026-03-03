@@ -1,6 +1,6 @@
 # Write your python code here:
-def my_mp3_playlist(file_path): #returns a tuple of 
-# (longest song, num of songs, most frequent author)
+def my_mp3_playlist(file_path): 
+#returns a tuple of (longest song, num of songs, most frequent author)
     authors = {}
     max_appearance, max_duration, num_songs = [0,0,0] 
     max_author, longest_song = [None, None]
@@ -26,6 +26,8 @@ def my_mp3_playlist(file_path): #returns a tuple of
                 longest_song = line_splitted[0]    
     return (longest_song, num_songs, max_author)
     
-def convert_to_sec(duration): #converts a min:sec format to seconds
+
+def convert_to_sec(duration): 
+#converts a min:sec format to seconds
     times = duration.split(":")
     return 60*int(times[0])+int(times[1])
