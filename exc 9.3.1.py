@@ -8,24 +8,24 @@ def my_mp3_playlist(file_path):
     longest_song = None
     with open(file_path, "r") as f:
         song_entries = f.readlines()
-        for line in song_entries:
-            if line.count(";") != 3:
-                continue #skips lines that don't have the right folrmat
-            song_name, author, length, _ = line.split(";")
-            num_songs += 1
-            duration = convert_to_sec(length)
-            if authors.get(author) == None:
-                authors[author] = [(song_name,duration)]
-            else:
-                authors[author].append((song_name,duration))
-            appearance = len(authors[author])
+    for line in song_entries:
+        if line.count(";") != 3:
+            continue #skips lines that don't have the right folrmat
+        song_name, author, length, _ = line.split(";")
+        num_songs += 1
+        duration = convert_to_sec(length)
+        if authors.get(author) == None:
+            authors[author] = [(song_name,duration)]
+        else:
+            authors[author].append((song_name,duration))
+        appearance = len(authors[author])
 
-            if appearance > max_appearance:
-                max_appearance = appearance
-                max_author = author
-            if duration > max_duration:
-                max_duration = duration
-                longest_song = song_name    
+        if appearance > max_appearance:
+            max_appearance = appearance
+            max_author = author
+        if duration > max_duration:
+            max_duration = duration
+            longest_song = song_name    
     return (longest_song, num_songs, max_author)
     
     """converts a min:sec format to seconds"""
