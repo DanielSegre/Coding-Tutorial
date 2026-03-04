@@ -9,9 +9,9 @@ def my_mp3_playlist(file_path):
     with open(file_path, "r") as f:
         song_entries = f.readlines()
         for line in song_entries:
-            song_name, author, length = line.split(";")
-            if song_name == "" or author == "" or length == "":
-                continue #skips lines that don't have the right format
+            if line.count(";") != 3:
+                continue #skips lines that don't have the right folrmat
+            song_name, author, length, _ = line.split(";")
             num_songs += 1
             duration = convert_to_sec(length)
             if authors.get(author) == None:
