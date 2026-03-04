@@ -28,7 +28,7 @@ def my_mp3_playlist(file_path):
     
 
 def convert_to_sec(duration): 
-#converts a min:sec format to seconds
+    “”” converts a min:sec format to seconds “””
     times = duration.split(":")
     return 60*int(times[0])+int(times[1])
 #new comment attempt - 3.3. 19:00 
